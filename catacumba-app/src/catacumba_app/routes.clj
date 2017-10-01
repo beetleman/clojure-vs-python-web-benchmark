@@ -5,8 +5,8 @@
 
 (defn hello-handler
   [context]
-  (http/ok "{\"msg\": \"hello world\"}" {:content-type "application/json"}))
+  "hello world")
 
 (defn routes [base]
   (ct/routes [
-               [:get "" hello-handler]]))
+              [:get "" hello-handler]]))

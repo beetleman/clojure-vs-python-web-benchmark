@@ -5,5 +5,5 @@
 (defn routes [base]
   [base
    [
-    ["" (yada/as-resource {:msg "hello world"})]
+    ["" (yada/as-resource "hello world")]
     [true (yada/as-resource nil)]]])

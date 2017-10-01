@@ -11,4 +11,4 @@
                            :description "Sample Services"}}}}
 
     (GET "/" []
-         (ok {:msg "hello"})))
+         (ok "hello world")))
