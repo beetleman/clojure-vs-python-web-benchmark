@@ -9,4 +9,5 @@
   :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
   :main ^:skip-aot catacumba-app.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "catacumba-app.jar"}})

@@ -10,4 +10,5 @@
                  [yada "1.2.9"]]
   :main ^:skip-aot yada-app.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all
+                       :uberjar-name "yada-app.jar"}})
