@@ -18,7 +18,7 @@
                 (http/start
                   (-> env
                       (assoc :handler (handler/app))
-                      (update :port #(or (-> env :options :port) %))))
+                      (assoc :port 8080)))
                 :stop
                 (http/stop http-server))
 
