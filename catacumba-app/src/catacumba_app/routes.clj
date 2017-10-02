@@ -5,6 +5,7 @@
 
 (defn hello-handler
   [context]
+  (Thread/sleep 1000)
   "hello world")
 
 (defn routes [base]

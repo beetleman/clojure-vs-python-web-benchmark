@@ -3,6 +3,11 @@
             [compojure.api.sweet :refer :all]
             [schema.core :as s]))
 
+
+(defn hello-handler []
+  (Thread/sleep 1000)
+  "hello world")
+
 (defapi service-routes
   {:swagger {:ui "/swagger-ui"
              :spec "/swagger.json"
@@ -11,4 +16,4 @@
                            :description "Sample Services"}}}}
 
     (GET "/" []
-         (ok "hello world")))
+         (ok (hello-handler))))
