@@ -1,0 +1,77 @@
+=== Without delay ===
+
+catacumba-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     9.92ms    6.80ms 156.08ms   81.70%
+    Req/Sec     3.53k   439.59     9.83k    85.05%
+  2522882 requests in 1.00m, 216.54MB read
+Requests/sec:  41980.25
+Transfer/sec:      3.60MB
+
+luminus-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    37.68ms   71.99ms   1.10s    98.17%
+    Req/Sec     1.14k   198.31     3.27k    86.35%
+  805593 requests in 1.00m, 266.59MB read
+Requests/sec:  13405.75
+Transfer/sec:      4.44MB
+
+yada-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   143.86ms  164.77ms   1.98s    88.94%
+    Req/Sec   299.16     76.65   705.00     70.42%
+  213013 requests in 1.00m, 76.18MB read
+  Socket errors: connect 0, read 0, write 0, timeout 1
+Requests/sec:   3544.42
+Transfer/sec:      1.27MB
+
+
+=== With 1s delay ===
+
+catacumba-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.00s     0.00us   1.00s   100.00%
+    Req/Sec     0.99      1.14     5.00     87.90%
+  329 requests in 1.00m, 28.92KB read
+  Socket errors: connect 0, read 1, write 0, timeout 328
+Requests/sec:      5.48
+Transfer/sec:     493.39B
+
+luminus-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     0.00us    0.00us   0.00us    -nan%
+    Req/Sec     6.62     12.49   110.00     90.42%
+  1524 requests in 1.00m, 516.43KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1524
+Requests/sec:     25.38
+Transfer/sec:      8.60KB
+
+yada-app
+benchmark:
+Running 1m test @ http://localhost:8080
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.01s    36.75ms   1.25s    98.56%
+    Req/Sec    56.12     64.39   323.00     85.11%
+  22447 requests in 1.00m, 5.85MB read
+  Non-2xx or 3xx responses: 25
+Requests/sec:    373.55
+Transfer/sec:     99.71KB
+
+
+=== With 1s delay (defered) ===
