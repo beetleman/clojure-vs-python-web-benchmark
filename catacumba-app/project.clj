@@ -5,6 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[funcool/catacumba "2.2.0"]
                  [mount "0.1.11"]
+                 [manifold "0.1.6"]
                  [org.clojure/clojure "1.8.0"]]
   :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
   :main ^:skip-aot catacumba-app.core

@@ -1,12 +1,14 @@
 (ns yada-app.routes
-  (:require [yada.yada :as yada]))
+  (:require [yada.yada :as yada]
+            [manifold.deferred :as d]))
 
 
 
 (defn hello-handler [ctx]
-  (Thread/sleep 1000)
-  "hello world")
-
+  (let [result (d/future
+                 (Thread/sleep 1000)
+                 "hello world")]
+    result))
 
 (defn routes [base]
   [base

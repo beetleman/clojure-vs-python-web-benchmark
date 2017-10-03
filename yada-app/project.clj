@@ -5,6 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [aleph "0.4.3"]
+                 [manifold "0.1.6"]
                  [mount "0.1.11"]
                  [bidi "2.1.2"]
                  [yada "1.2.9"]]
