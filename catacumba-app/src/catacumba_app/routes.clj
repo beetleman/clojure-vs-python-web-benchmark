@@ -4,9 +4,19 @@
             [catacumba.http :as http]))
 
 
-(defn hello-handler [context]
-  (let [result (d/future
-                 (Thread/sleep 1000)
+(defn str->int
+  ([s]
+   (str->int s 0))
+  ([s default]
+   (try
+    (Integer/parseInt s)
+    (catch Exception _ default))))
+
+
+(defn hello-handler [ctx]
+  (let [delay (-> ctx :query-params :delay str->int)
+        result (d/future
+                 (Thread/sleep delay)
                  "hello world")]
     result))
 
