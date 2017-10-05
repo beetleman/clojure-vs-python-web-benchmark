@@ -4,8 +4,8 @@
             [schema.core :as s]))
 
 
-(defn hello-handler []
-  (Thread/sleep 1000)
+(defn hello-handler [delay]
+  (Thread/sleep delay)
   "hello world")
 
 (defapi service-routes
@@ -15,5 +15,7 @@
                            :title "Sample API"
                            :description "Sample Services"}}}}
 
-    (GET "/" []
-         (ok (hello-handler))))
+  (GET "/" []
+       :query-params [{delay :- Long 0}]
+       :return String
+       (ok (hello-handler delay))))
