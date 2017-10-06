@@ -33,7 +33,7 @@ end
 done = function(summary, latency, requests)
    file = io.open ('./report.csv', 'a')
    line = string.format(
-      "%s,%i,%f,%f,%f,%f,%i,%i\n",
+      "\"%s\",%i,%f,%f,%f,%f,%i,%i\n",
       title(),
       delay(),
       reqPerSec(summary),

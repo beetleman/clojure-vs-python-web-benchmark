@@ -15,7 +15,7 @@ do
     wrk -t12 -c400 -d10s http://localhost:8080/?delay=0
     wrk -t12 -c400 -d10s http://localhost:8080/?delay=100
 
-    for factor in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+    for factor in 0 1 2 3 4 5 6 7 8 9 10
     do
         delay=$(($factor * 100))
         echo "benchmark [$delay ms]:"| tee -a ../results.log
@@ -40,3 +40,4 @@ do
 done;
 
 cat *-app/*.csv > report.csv
+python3 ./generate_plots.py
