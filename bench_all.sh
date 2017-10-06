@@ -22,7 +22,7 @@ do
 
         TITLE=$name DELAY=$delay wrk \
              -t12 -c400 -d60s \
-             -s ./report.lua
+             -s ../report.lua \
              http://localhost:8080/?delay=$delay | tee -a ../results.log
 
         echo "------------------------------------------"| tee -a ../results.log
@@ -38,3 +38,5 @@ do
 
     cd ..
 done;
+
+cat *-app/*.csv > report.csv
