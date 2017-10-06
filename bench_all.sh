@@ -13,14 +13,25 @@ do
 
     echo "Warm up..."
     wrk -t12 -c400 -d10s http://localhost:8080/?delay=0
+    wrk -t12 -c400 -d10s http://localhost:8080/?delay=100
 
-    for delay in 0 100 200 300 400 500 1000 2000
+    for factor in 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
     do
+        delay=$(($factor * 100))
         echo "benchmark [$delay ms]:"| tee -a ../results.log
+
         wrk -t12 -c400 -d60s http://localhost:8080/?delay=$delay | tee -a ../results.log
-        echo "====================================="
+
+        echo "------------------------------------------"| tee -a ../results.log
+        echo | tee -a ../results.log
         sleep 5
     done;
+
     for x in `jobs -p`; do kill -9 $x; done
+
+    echo "=========================================="| tee -a ../results.log
+    echo | tee -a ../results.log
+    echo | tee -a ../results.log
+
     cd ..
 done;
