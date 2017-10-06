@@ -20,7 +20,10 @@ do
         delay=$(($factor * 100))
         echo "benchmark [$delay ms]:"| tee -a ../results.log
 
-        wrk -t12 -c400 -d60s http://localhost:8080/?delay=$delay | tee -a ../results.log
+        TITLE=$name DELAY=$delay wrk \
+             -t12 -c400 -d60s \
+             -s ./report.lua
+             http://localhost:8080/?delay=$delay | tee -a ../results.log
 
         echo "------------------------------------------"| tee -a ../results.log
         echo | tee -a ../results.log
