@@ -87,7 +87,7 @@ def main():
                 "all_errors.png"
             ]
         ],
-        load('./report.csv')
+        load('./results.csv')
     )
 
 
