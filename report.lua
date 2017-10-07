@@ -31,7 +31,6 @@ delay = function()
 end
 
 done = function(summary, latency, requests)
-   file = io.open ('./artifacts/results.csv', 'a')
    line = string.format(
       "\"%s\",%i,%f,%f,%f,%f,%i,%i\n",
       title(),
@@ -43,7 +42,7 @@ done = function(summary, latency, requests)
       timeoutsErrors(summary),
       allErrors(summary)
    )
-   file = io.open ('./report.csv', 'a')
+   file = io.open ('./artifacts/report.csv', 'a')
    file:write(line)
    file:close();
 end

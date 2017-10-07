@@ -93,7 +93,7 @@ def main():
                 "all_errors.png"
             ]
         ],
-        load('./results.csv')
+        load('./artifacts/results.csv')
     )
 
 
