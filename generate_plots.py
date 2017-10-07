@@ -1,6 +1,10 @@
 #!/usr/bin/env python
+
 import csv
 from itertools import cycle
+import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 
 
@@ -47,7 +51,7 @@ def plots(plots_desc, data):
         ax.legend()
         ax.set_xlabel(x_label)
         ax.set_ylabel(y_label)
-        fig.savefig('plots/' + fname)
+        fig.savefig('artifacts/plots/' + fname)
 
 
 def main():

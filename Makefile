@@ -1,6 +1,12 @@
-results.csv:
-	./bench_all.sh
-plots: results.csv
-	python3 generate_plots.py
+tag = clojure-web-benchmark
+volumes = $(shell pwd)/artifacts:/app/artifacts
+run = docker run -it $(tag) -v $(volumes)
+
+docker-img:
+	docker build -t $(tag) .
+artifacts/results.csv: docker-img
+	$(run) ./bench_all.sh
+plots: artifacts/results.csv docker-img
+	$(run) python3 generate_plots.py
 clean:
-	rm -rf *.csv *.log plots/*
+	$(run) rm -rf artifacts/*
