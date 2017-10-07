@@ -1,6 +1,6 @@
 tag = clojure-web-benchmark
 volumes = $(shell pwd)/artifacts:/app/artifacts
-run = docker run -it $(tag) -v $(volumes)
+run = docker run -v $(volumes) -it $(tag)
 
 docker-img:
 	docker build -t $(tag) .

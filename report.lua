@@ -42,7 +42,7 @@ done = function(summary, latency, requests)
       timeoutsErrors(summary),
       allErrors(summary)
    )
-   file = io.open ('./artifacts/report.csv', 'a')
+   file = io.open ('./artifacts/results.csv', 'a')
    file:write(line)
    file:close();
 end
