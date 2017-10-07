@@ -32,7 +32,7 @@ def load(p):
 
 
 def plot(data, ax, y_index, x_index=0):
-    markers = cycle(['o', 'x', '+', '*'])
+    markers = cycle(['o', 'x', '+', '*', '.'])
     for label, rows in data.items():
         x = [i[x_index] for i in rows]
         y = [i[y_index] for i in rows]
