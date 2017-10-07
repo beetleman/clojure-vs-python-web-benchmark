@@ -1,0 +1,6 @@
+python3 -m venv env
+env/bin/pip install wheel
+env/bin/pip install aiohttp==2.2.5 gunicorn==19.7
+
+cores=`nproc`
+env/bin/gunicorn app:app -b 127.0.0.1:8080 --worker-class aiohttp.GunicornWebWorker -w $(($cores*2)) &
