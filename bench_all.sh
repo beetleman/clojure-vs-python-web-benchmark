@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 for name in `ls -d *-app`
 do
-    echo $name |tee -a ./results.log
 
+    echo $name |tee -a ../results.log
     cd $name
+
     lein clean
     lein uberjar
     java -jar ./target/uberjar/$name.jar &
