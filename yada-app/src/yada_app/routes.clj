@@ -9,7 +9,7 @@
   (let [delay  (get-in ctx [:parameters :query :delay])
         result (d/future
                  (Thread/sleep delay)
-                 "hello world")]
+                 "hello world!")]
     result))
 
 (def hello-resource

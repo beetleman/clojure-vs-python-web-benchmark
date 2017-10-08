@@ -19,4 +19,4 @@ def toInt(x):
 def hello():
     delay = request.args.get('delay')
     time.sleep(toInt(delay)/1000)
-    return "Hello World!"
+    return "hello world!"

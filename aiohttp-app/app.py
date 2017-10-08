@@ -12,7 +12,7 @@ def toInt(x):
 async def index(request):
     delay = request.GET.get('delay')
     await asyncio.sleep(toInt(delay)/1000)
-    return web.Response(text="Welcome home!")
+    return web.Response(text="hello word!")
 
 
 app = web.Application()
